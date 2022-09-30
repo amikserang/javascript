@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '🏗️👷 Mem-format dokumen dan menyiapkan kode untuk commit 👷‍♂️🏗️'
+echo 'Harap tunggu, ini mungkin membutuhkan waktu beberapa saat..'
+
+# Check ESLint Standards
+yarn lint ||
+(
+    echo '🔨❌ Nampaknya ada masalah pada kode anda, harap perika kode yang dimodifikasi dan jalankan perintah sebagai berikut: 🔨❌';
+    echo 'yarn lint';
+    false;
+)
+
+echo '🎉 Tidak ada masalah pada kode, melakukan commit Git sekarang ✨🚀🏄‍♂️🍻'
+
+npx lint-staged

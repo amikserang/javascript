@@ -1,0 +1,31 @@
+{
+  "name": "javascript",
+  "version": "0.0.1",
+  "description": "Materi belajar javascript dengan repository GitHub",
+  "scripts": {
+    "postinstall": "husky install",
+    "lint": "eslint -c ./.eslintrc.js ./src/**/*.js",
+    "format": "prettier --w ./src/**/*.{js,md}"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.24.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn lint"
+    ],
+    "*.{js,md}": [
+      "yarn format"
+    ]
+  }
+}
